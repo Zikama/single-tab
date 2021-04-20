@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/lib/materialize/css/materialize.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <title>Tabs</title>
+</head>
+
+<body>
+    <!-- <header class="art-main-header">
+        <nav class="art-nav">Main Nav</nav>
+    </header> -->
+    <div class="art-main-section">
+        <div class="art-main-modal art-md-show left" id="_home-sector" tag-data-back="right" tag-data="left">
+            <!-- Main js content  -->
+            <div class="art-md-content">
+                <div class="art-card-sector ">
+                    <div id="_art-anoter" class="art-card waves-effect waves-ripple">
+
+                        gffgf
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="art-main-modal art-md-hide right" id="home-sector" tag-data-back="right" tag-data="left">
+            <!-- Section md header -->
+            <div class="art-md-header">
+                <button class="art-btn-no-mt art-btn waves-effect waves-ripple art-md-back" id="home-sector_back">Back</button>
+                <div class="art-js-header-content"><b>My Header</b></div>
+                <button class="art-btn-no-mt art-btn art-md-options waves-effect waves-ripple" id="home-sector_options">...</button>
+            </div>
+            <!-- Main js content  -->
+            <div class="art-md-content">
+                <div class="art-card-sector ">
+                    <div id="art-anoter" class="art-card waves-effect waves-ripple">
+                        orem ipsum dolor, sit amet consectetur adipisicing elit. Molestias vitae obcaecati
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="art-card waves-effect waves-ripple" md-data="home-sector">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias vitae obcaecati
+    </div>
+
+
+    <!-- Let's have our scripts here -->
+    <script src="assets/lib/materialize/js/materialize.js"></script>
+    <script src="assets/js/mainV2.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
+    <script>
+        g = k => document.querySelector(k);
+        gA = k => document.querySelectorAll(k);
+        const GoHome = g('#art-home');
+        const mD = new MD();
+
+        function goHome(e) {
+            const options = {
+                id: 'home-sector',
+                header: '<b>My Header</b>',
+                content: `<div class="art-card-sector ">
+                                <div id="art-anoter" class="art-card waves-effect waves-ripple">
+                                orem ipsum dolor, sit amet consectetur adipisicing elit. Molestias vitae obcaecati
+                            </div>
+                            </div>`,
+                footer: `<b>My footer</b>`
+
+            }
+
+            mD.write(options,
+                (id) => {
+                    const to_anoter = g('#art-anoter');
+                    to_anoter.addEventListener('click', () => {
+
+                        const options = {
+                            id: 'home-sector2',
+                            header: '<b>My Header2</b>',
+                            content() {
+                                return `<div class="art-card-sector ">
+                                    <div id="art-anoter2" class="art-card waves-effect waves-ripple">
+                                        orem ipsum dolor, sit amet consectetur adipisicing elit. Molestias vitae obcaecati
+                                    </div>
+                                    <div id="art-anoter4" class="art-card waves-effect waves-ripple">
+                                        orem ipsum dolor, sit amet consectetur adipisicing elit. Molestias vitae obcaecati
+                                    </div>
+                                    </div>`
+                            },
+                            footer() {
+                                return `<b>My footer2</b>`;
+                            }
+                        };
+                        mD.write(options, (id) => {
+
+                        });
+                    })
+
+                });
+
+        }
+        const to_anoter = g('#art-anoter');
+        to_anoter.addEventListener('click', () => {
+
+            const options = {
+                id: 'home-sector2',
+                header: '<b>My Header2</b>',
+                content() {
+                    return `<div class="art-card-sector ">
+                                <div id="art-anoter2" class="art-card waves-effect waves-ripple">
+                                    orem ipsum dolor, sit amet consectetur adipisicing elit. Molestias vitae obcaecati
+                                </div>
+                                <div id="art-anoter4" class="art-card waves-effect waves-ripple">
+                                    orem ipsum dolor, sit amet consectetur adipisicing elit. Molestias vitae obcaecati
+                                </div>
+                            </div>`
+                }
+            };
+
+            mD.write(options);
+        })
+    </script>
+</body>
+
+</html>
